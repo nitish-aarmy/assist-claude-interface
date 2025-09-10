@@ -7,6 +7,8 @@ import { ChatSidebar } from "./ChatSidebar";
 import { cn } from "@/lib/utils";
 
 export function ChatInterface() {
+  console.log("ChatInterface component rendering");
+  
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
