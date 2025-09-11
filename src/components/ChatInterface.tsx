@@ -12,7 +12,7 @@ export function ChatInterface() {
   const [messages, setMessages] = useState<Message[]>([
     {
       id: "1",
-      content: "I am yourassist, your AI assistant. How can I help you today?",
+      content: "I am Assist AI, your AI assistant. How can I help you today?",
       role: "assistant",
       timestamp: new Date(),
     },
@@ -86,7 +86,7 @@ export function ChatInterface() {
     setMessages([
       {
         id: "1",
-        content: "I am yourassist, your AI assistant. How can I help you today?",
+        content: "I am Assist AI, your AI assistant. How can I help you today?",
         role: "assistant",
         timestamp: new Date(),
       },
@@ -125,7 +125,7 @@ export function ChatInterface() {
               <div>
                 <h1 className="font-semibold text-lg">Assist AI</h1>
                 <p className="text-xs text-muted-foreground">
-                  Powered by Assisiarmy
+                  Powered by AssistArmy
                 </p>
               </div>
             </div>
