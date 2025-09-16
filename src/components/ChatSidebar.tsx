@@ -69,8 +69,38 @@ export function ChatSidebar({
             </div>
           </div>
 
-          {/* Settings Content */}
-          <div className="flex-1 overflow-y-auto custom-scrollbar p-6 space-y-6">
+          {/* Chat History & Settings */}
+          <div className="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-4">
+            {/* New Chat Button */}
+            <Button
+              variant="outline"
+              className="w-full justify-start gap-3 h-10 glass border-white/10"
+              onClick={() => window.location.reload()}
+            >
+              <MessageSquare size={16} />
+              New Chat
+            </Button>
+
+            {/* Chat History */}
+            <div className="space-y-2">
+              <h3 className="text-xs font-medium text-muted-foreground px-3 py-2">
+                Recent Chats
+              </h3>
+              <div className="space-y-1">
+                <Button
+                  variant="ghost"
+                  className="w-full justify-start text-left h-auto p-3 glass border-transparent hover:border-white/10"
+                >
+                  <div className="truncate text-sm">
+                    Current conversation...
+                  </div>
+                </Button>
+              </div>
+            </div>
+
+            <Separator className="bg-white/10" />
+
+            {/* Settings Section */}
             {/* Theme Toggle */}
             <Card>
               <CardHeader className="pb-3">
@@ -192,9 +222,17 @@ export function ChatSidebar({
           </div>
 
           {/* Footer */}
-          <div className="p-6 border-t border-sidebar-border">
+          <div className="p-4 border-t border-sidebar-border space-y-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="w-full justify-start gap-3 glass"
+            >
+              <Settings size={16} />
+              Settings
+            </Button>
             <div className="text-xs text-muted-foreground text-center">
-              Assist AI v1.0 • Powered by Claude
+              Assist AI v1.0
             </div>
           </div>
         </div>

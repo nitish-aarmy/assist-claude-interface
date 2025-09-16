@@ -127,15 +127,12 @@ export function ChatInterface() {
             </Button>
             
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl glass neomorphic flex items-center justify-center glow-on-hover">
-                <MessageSquare size={20} className="text-primary" />
-              </div>
               <div>
                 <h1 className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
                   Assist AI
                 </h1>
                 <p className="text-xs text-muted-foreground font-medium">
-                  Powered by AssistArmy • Gemini Style
+                  Powered by AssistArmy
                 </p>
               </div>
             </div>
@@ -168,9 +165,6 @@ export function ChatInterface() {
           {messages.length === 1 && (
             <div className="flex items-center justify-center h-full p-8">
               <div className="text-center max-w-lg">
-                <div className="w-24 h-24 glass neomorphic rounded-3xl flex items-center justify-center mx-auto mb-6 glow-on-hover">
-                  <MessageSquare size={40} className="text-primary" />
-                </div>
                 <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
                   Welcome to Assist AI
                 </h2>
