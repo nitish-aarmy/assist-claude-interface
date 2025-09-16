@@ -169,14 +169,8 @@ export function ChatInterface() {
                   Welcome to Assist AI
                 </h2>
                 <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                  Experience the future of AI conversation with our premium glassmorphic interface. 
-                  Start chatting to see the magic unfold.
+                  Experience the future of AI
                 </p>
-                <div className="glass neomorphic p-6 rounded-2xl">
-                  <p className="text-sm text-muted-foreground">
-                    💡 <strong>Pro Tip:</strong> Configure your Claude API in the sidebar for real AI responses
-                  </p>
-                </div>
               </div>
             </div>
           )}
