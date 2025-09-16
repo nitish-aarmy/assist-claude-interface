@@ -125,17 +125,6 @@ export function ChatInterface() {
             >
               <Menu size={20} />
             </Button>
-            
-            <div className="flex items-center gap-3">
-              <div>
-                <h1 className="font-bold text-xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  Assist AI
-                </h1>
-                <p className="text-xs text-muted-foreground font-medium">
-                  Powered by AssistArmy
-                </p>
-              </div>
-            </div>
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
@@ -165,12 +154,14 @@ export function ChatInterface() {
           {messages.length === 1 && (
             <div className="flex items-center justify-center h-full p-8">
               <div className="text-center max-w-lg">
-                <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent">
-                  Welcome to Assist AI
-                </h2>
-                <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                  Experience the future of AI
-                </p>
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                  </div>
+                  <h2 className="text-xl font-medium text-foreground">
+                    Hi there! How can I help you today?
+                  </h2>
+                </div>
               </div>
             </div>
           )}
