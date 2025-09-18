@@ -2,42 +2,49 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Assist AI Chatbot Design System - Modern, Professional Theme */
+/* Gemini-Style Neomorphic Glassmorphism Design System */
 
 @layer base {
   :root {
-    /* Core Background Colors */
-    --background: 0 0% 100%;
+    /* Core Background - Premium Gradient */
+    --background: 225 15% 97%;
     --foreground: 215 25% 15%;
     
-    /* Card & Surface Colors */
-    --card: 0 0% 100%;
+    /* Glassmorphism Base */
+    --glass-background: rgba(255, 255, 255, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.18);
+    --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    
+    /* Card & Surface Colors - Glass Effect */
+    --card: rgba(255, 255, 255, 0.15);
     --card-foreground: 215 25% 15%;
+    --card-glass: rgba(255, 255, 255, 0.25);
     
     /* Interactive Elements */
-    --popover: 0 0% 100%;
+    --popover: rgba(255, 255, 255, 0.95);
     --popover-foreground: 215 25% 15%;
     
-    /* Brand Colors - Professional Blue Theme */
-    --primary: 218 95% 55%;
+    /* Premium Brand Colors - Gemini Inspired */
+    --primary: 220 100% 60%;
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 218 95% 65%;
+    --primary-glow: 220 100% 70%;
+    --primary-glass: rgba(59, 130, 246, 0.15);
     
-    /* Message Colors */
-    --user-message: 218 95% 55%;
-    --user-message-foreground: 0 0% 100%;
-    --ai-message: 215 15% 96%;
+    /* Message Colors - Glassmorphic */
+    --user-message: rgba(59, 130, 246, 0.15);
+    --user-message-foreground: 220 100% 60%;
+    --ai-message: rgba(255, 255, 255, 0.25);
     --ai-message-foreground: 215 25% 15%;
     
-    /* Neutral Tones */
-    --secondary: 215 15% 96%;
+    /* Neutral Glass Tones */
+    --secondary: rgba(255, 255, 255, 0.15);
     --secondary-foreground: 215 25% 15%;
     
-    --muted: 215 15% 96%;
+    --muted: rgba(255, 255, 255, 0.1);
     --muted-foreground: 215 12% 55%;
     
-    --accent: 218 95% 55%;
-    --accent-foreground: 0 0% 100%;
+    --accent: rgba(139, 92, 246, 0.15);
+    --accent-foreground: 139 92% 60%;
     
     /* Status Colors */
     --destructive: 0 84% 60%;
@@ -46,95 +53,115 @@
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     
-    /* Border & Input */
-    --border: 215 15% 88%;
-    --input: 215 15% 96%;
-    --ring: 218 95% 55%;
+    /* Border & Input - Glass Effect */
+    --border: rgba(255, 255, 255, 0.18);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: 220 100% 60%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    /* Sidebar */
-    --sidebar-background: 0 0% 98%;
+    /* Sidebar - Glassmorphic */
+    --sidebar-background: rgba(255, 255, 255, 0.15);
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent: rgba(255, 255, 255, 0.1);
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-border: rgba(255, 255, 255, 0.18);
+    --sidebar-ring: 220 100% 60%;
     
-    /* Custom gradients and animations */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
+    /* Premium Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 60%), hsl(220 100% 70%));
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    --gradient-background: linear-gradient(135deg, hsl(225 15% 97%), hsl(215 20% 94%));
+    --gradient-neomorphic: linear-gradient(145deg, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05));
     
-    /* Shadows */
-    --shadow-message: 0 1px 3px rgba(0, 0, 0, 0.1);
-    --shadow-sidebar: 0 4px 20px rgba(0, 0, 0, 0.1);
+    /* Premium Shadows - Neomorphic */
+    --shadow-glass: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    --shadow-neomorphic: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    --shadow-neomorphic-inset: inset 20px 20px 60px #bebebe, inset -20px -20px 60px #ffffff;
+    --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.5);
     
     /* Animation timing */
-    --transition-smooth: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-message: transform 0.3s ease-out, opacity 0.3s ease-out;
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-glass: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --transition-premium: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   }
 
   .dark {
-    /* Dark Theme - Elegant Professional */
-    --background: 220 15% 8%;
+    /* Dark Theme - Premium Glassmorphism */
+    --background: 220 20% 8%;
     --foreground: 215 20% 90%;
     
-    --card: 220 15% 10%;
-    --card-foreground: 215 20% 90%;
+    /* Dark Glass Effects */
+    --glass-background: rgba(0, 0, 0, 0.25);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
     
-    --popover: 220 15% 10%;
+    --card: rgba(0, 0, 0, 0.25);
+    --card-foreground: 215 20% 90%;
+    --card-glass: rgba(255, 255, 255, 0.05);
+    
+    --popover: rgba(0, 0, 0, 0.95);
     --popover-foreground: 215 20% 90%;
     
-    /* Brand Colors in Dark Mode */
-    --primary: 218 95% 65%;
-    --primary-foreground: 220 15% 8%;
-    --primary-glow: 218 95% 75%;
+    /* Dark Brand Colors */
+    --primary: 220 100% 70%;
+    --primary-foreground: 220 20% 8%;
+    --primary-glow: 220 100% 80%;
+    --primary-glass: rgba(59, 130, 246, 0.2);
     
-    /* Message Colors in Dark */
-    --user-message: 218 95% 65%;
-    --user-message-foreground: 220 15% 8%;
-    --ai-message: 220 15% 12%;
+    /* Dark Message Colors */
+    --user-message: rgba(59, 130, 246, 0.2);
+    --user-message-foreground: 220 100% 70%;
+    --ai-message: rgba(255, 255, 255, 0.05);
     --ai-message-foreground: 215 20% 85%;
     
-    /* Neutral Dark Tones */
-    --secondary: 220 15% 12%;
+    /* Dark Neutral Glass */
+    --secondary: rgba(255, 255, 255, 0.05);
     --secondary-foreground: 215 20% 85%;
     
-    --muted: 220 15% 12%;
+    --muted: rgba(255, 255, 255, 0.03);
     --muted-foreground: 215 12% 60%;
     
-    --accent: 218 95% 65%;
-    --accent-foreground: 220 15% 8%;
+    --accent: rgba(139, 92, 246, 0.2);
+    --accent-foreground: 139 92% 70%;
     
-    /* Status Colors Dark */
+    /* Dark Status */
     --destructive: 0 84% 65%;
-    --destructive-foreground: 220 15% 8%;
+    --destructive-foreground: 220 20% 8%;
     
     --success: 142 76% 46%;
-    --success-foreground: 220 15% 8%;
+    --success-foreground: 220 20% 8%;
     
-    /* Borders & Input Dark */
-    --border: 220 15% 18%;
-    --input: 220 15% 12%;
-    --ring: 218 95% 65%;
+    /* Dark Borders */
+    --border: rgba(255, 255, 255, 0.1);
+    --input: rgba(255, 255, 255, 0.05);
+    --ring: 220 100% 70%;
     
-    /* Sidebar Dark */
-    --sidebar-background: 220 15% 6%;
+    /* Dark Sidebar */
+    --sidebar-background: rgba(0, 0, 0, 0.3);
     --sidebar-foreground: 215 20% 85%;
-    --sidebar-primary: 218 95% 65%;
-    --sidebar-primary-foreground: 220 15% 8%;
-    --sidebar-accent: 220 15% 10%;
+    --sidebar-primary: 220 100% 70%;
+    --sidebar-primary-foreground: 220 20% 8%;
+    --sidebar-accent: rgba(255, 255, 255, 0.05);
     --sidebar-accent-foreground: 215 20% 85%;
-    --sidebar-border: 220 15% 15%;
-    --sidebar-ring: 218 95% 65%;
+    --sidebar-border: rgba(255, 255, 255, 0.1);
+    --sidebar-ring: 220 100% 70%;
     
-    /* Dark gradients and shadows */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-subtle: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    --shadow-message: 0 1px 3px rgba(0, 0, 0, 0.3);
-    --shadow-sidebar: 0 4px 20px rgba(0, 0, 0, 0.4);
+    /* Dark Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 70%), hsl(220 100% 80%));
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+    --gradient-background: linear-gradient(135deg, hsl(220 20% 8%), hsl(215 25% 6%));
+    --gradient-neomorphic: linear-gradient(145deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.1));
+    
+    /* Dark Shadows */
+    --shadow-glass: 0 8px 32px 0 rgba(0, 0, 0, 0.6);
+    --shadow-neomorphic: 20px 20px 60px #0a0a0a, -20px -20px 60px #1a1a1a;
+    --shadow-neomorphic-inset: inset 20px 20px 60px #0a0a0a, inset -20px -20px 60px #1a1a1a;
+    --shadow-premium: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.3);
   }
 }
 
@@ -144,37 +171,114 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: var(--gradient-background);
+    @apply text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
+    backdrop-filter: blur(10px);
+    min-height: 100vh;
+  }
+  
+  /* Premium Glass Morphism Base */
+  .glass {
+    background: var(--glass-background);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--shadow-glass);
+  }
+  
+  .neomorphic {
+    box-shadow: var(--shadow-neomorphic);
+    background: var(--gradient-neomorphic);
+  }
+  
+  .neomorphic-inset {
+    box-shadow: var(--shadow-neomorphic-inset);
   }
 }
 
 @layer components {
-  /* Message Animations */
+  /* Premium Animations */
   .message-enter {
-    @apply animate-in slide-in-from-bottom-2 fade-in-0 duration-300;
+    @apply animate-in slide-in-from-bottom-4 fade-in-0;
+    animation-duration: 0.6s;
+    animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
   }
   
   .typing-animation {
     @apply animate-pulse;
   }
   
-  /* Custom scrollbar */
+  .glow-on-hover {
+    transition: var(--transition-premium);
+  }
+  
+  .glow-on-hover:hover {
+    box-shadow: var(--shadow-glow);
+    transform: translateY(-2px);
+  }
+  
+  /* Premium scrollbar */
   .custom-scrollbar {
     scrollbar-width: thin;
-    scrollbar-color: hsl(var(--muted-foreground)) transparent;
+    scrollbar-color: var(--glass-border) transparent;
   }
   
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
+    width: 8px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-track {
     background: transparent;
+    border-radius: 10px;
   }
   
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--muted-foreground));
-    border-radius: 3px;
+    background: var(--glass-background);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid var(--glass-border);
+  }
+  
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-glass);
+  }
+  
+  /* Floating Elements */
+  .float-animation {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  /* Glass Button Effects */
+  .glass-button {
+    @apply glass;
+    transition: var(--transition-glass);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .glass-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s;
+  }
+  
+  .glass-button:hover::before {
+    left: 100%;
+  }
+  
+  .glass-button:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-premium);
   }
 }

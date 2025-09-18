@@ -102,7 +102,15 @@ export function ChatInterface() {
   };
 
   return (
-    <div className="flex h-screen bg-background">
+    <div className="flex h-screen relative overflow-hidden">
+      {/* Background Effects */}
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(120,119,198,0.1),transparent_50%)]" />
+      
+      {/* Floating Orbs */}
+      <div className="absolute top-20 left-20 w-72 h-72 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-full blur-3xl float-animation" />
+      <div className="absolute bottom-20 right-20 w-96 h-96 bg-gradient-to-r from-purple-400/15 to-pink-400/15 rounded-full blur-3xl float-animation" style={{animationDelay: '3s'}} />
+
       {/* Sidebar */}
       <ChatSidebar
         isOpen={sidebarOpen}
@@ -113,38 +121,35 @@ export function ChatInterface() {
       />
 
       {/* Main Chat Area */}
-      <div className="flex-1 flex flex-col min-w-0">
-        {/* Header */}
-        <header className="border-b bg-card px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
+      <div className="flex-1 flex flex-col min-w-0 relative z-10">
+        {/* Header - Glass Effect */}
+        <header className="glass border-b border-white/20 px-6 py-4 flex items-center justify-between backdrop-blur-xl">
+          <div className="flex items-center gap-4">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setSidebarOpen(true)}
-              className="lg:hidden"
+              className="lg:hidden glass-button"
             >
               <Menu size={20} />
             </Button>
-            
-            <div className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <MessageSquare size={18} className="text-primary-foreground" />
-              </div>
-              <div>
-                <h1 className="font-semibold text-lg">Assist AI</h1>
-                <p className="text-xs text-muted-foreground">
-                  Powered by AssistArmy
-                </p>
-              </div>
-            </div>
           </div>
 
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => setIsDarkMode(!isDarkMode)}
+              className="glass-button gap-2 font-medium"
+            >
+              {isDarkMode ? '☀️' : '🌙'}
+              {isDarkMode ? 'Light' : 'Dark'}
+            </Button>
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="gap-2"
+              className="glass-button gap-2 font-medium"
             >
               <Menu size={16} />
               Settings
@@ -152,48 +157,54 @@ export function ChatInterface() {
           </div>
         </header>
 
-        {/* Messages Area */}
-        <div className="flex-1 overflow-y-auto custom-scrollbar bg-background">
+        {/* Messages Area - Enhanced Glass */}
+        <div className="flex-1 overflow-y-auto custom-scrollbar relative">
           {messages.length === 1 && (
-            <div className="flex items-center justify-center h-full">
-              <div className="text-center max-w-md px-4">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <MessageSquare size={32} className="text-primary" />
+            <div className="flex items-center justify-center h-full p-8">
+              <div className="text-center max-w-lg">
+                <div className="flex items-center justify-center gap-3 mb-6">
+                  <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full flex items-center justify-center">
+                    <div className="w-3 h-3 bg-white rounded-full"></div>
+                  </div>
+                  <h2 className="text-xl font-medium text-foreground">
+                    Hi there! How can I help you today?
+                  </h2>
                 </div>
-                <h2 className="text-2xl font-semibold mb-2">Welcome to Assist AI</h2>
-                <p className="text-muted-foreground mb-6">
-                  Start a conversation with Claude, your intelligent AI assistant. 
-                  Configure your API settings in the sidebar to begin.
-                </p>
               </div>
             </div>
           )}
 
-          {messages.map((message) => (
-            <ChatMessage key={message.id} message={message} />
-          ))}
+          <div className="space-y-6 p-6">
+            {messages.map((message) => (
+              <ChatMessage key={message.id} message={message} />
+            ))}
 
-          {isLoading && (
-            <ChatMessage
-              message={{
-                id: "loading",
-                content: "",
-                role: "assistant",
-                timestamp: new Date(),
-              }}
-              isLoading={true}
-            />
-          )}
+            {isLoading && (
+              <ChatMessage
+                message={{
+                  id: "loading",
+                  content: "",
+                  role: "assistant",
+                  timestamp: new Date(),
+                }}
+                isLoading={true}
+              />
+            )}
+          </div>
 
           <div ref={messagesEndRef} />
         </div>
 
-        {/* Input Area */}
-        <ChatInput
-          onSendMessage={handleSendMessage}
-          disabled={isLoading}
-          placeholder="Ask Claude anything..."
-        />
+        {/* Input Area - Premium Glass */}
+        <div className="p-6">
+          <div className="glass neomorphic rounded-2xl p-4">
+            <ChatInput
+              onSendMessage={handleSendMessage}
+              disabled={isLoading}
+              placeholder="Ask Claude anything... ✨"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );
