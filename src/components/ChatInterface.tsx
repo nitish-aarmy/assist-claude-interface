@@ -52,21 +52,29 @@ export function ChatInterface() {
     setMessages((prev) => [...prev, userMessage]);
     setIsLoading(true);
 
-    // Simulate API call to Claude
-    // TODO: Replace with actual Claude GCP API integration
     try {
-      // Simulate network delay
-      await new Promise((resolve) => setTimeout(resolve, 1000 + Math.random() * 2000));
+      // Real API call to backend /vertex endpoint
+      const response = await fetch("http://localhost:8080/vertex", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": "AQ.Ab8RN6IZueSJaL22_NIdKSwdbm7EszZSENj9XblCKZlZ3_KzQw"
+        },
+        body: JSON.stringify({ message: content })
+      });
 
-      // Mock Claude response
-      const aiMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        content: `I understand you said: "${content}"\n\nThis is a simulated response. To integrate with Claude on GCP, you'll need to:\n\n1. Set up your API key in the sidebar\n2. Configure the GCP endpoint\n3. Implement the actual API call in the handleSendMessage function\n\nI'm ready to help with any questions you have!`,
-        role: "assistant",
-        timestamp: new Date(),
-      };
-
-      setMessages((prev) => [...prev, aiMessage]);
+      const data = await response.json();
+      if (response.ok && data.reply) {
+        const aiMessage: Message = {
+          id: (Date.now() + 1).toString(),
+          content: data.reply,
+          role: "assistant",
+          timestamp: new Date(),
+        };
+        setMessages((prev) => [...prev, aiMessage]);
+      } else {
+        throw new Error(data.error || "Claude call failed");
+      }
     } catch (error) {
       console.error("Error sending message:", error);
       // Add error message
